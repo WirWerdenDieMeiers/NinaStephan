@@ -28,7 +28,7 @@
             justify-content: space-between;
         }
         .info, .details {
-            background: rgba(255, 255, 255, 0.2); /* Etwas hellere Kacheln */
+            background: rgba(255, 255, 255, 0.2); 
             padding: 15px;
             border-radius: 10px;
             margin: 10px;
@@ -64,7 +64,12 @@
             background: #f5728d;
         }
 
-        /* Passwortschutz Styling */
+        /* Für eine sanfte Ladeanimation */
+        #content {
+            display: block; /* Sichtbar für Entwicklung */
+        }
+        
+        /* Passwortschutz */
         #login {
             position: absolute;
             top: 50%;
@@ -76,19 +81,29 @@
             color: #fff;
             text-align: center;
         }
+
+        .error-message {
+            color: red;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 
     <!-- Passwortschutz Form -->
+    <!-- Temporär auskommentiert für die Entwicklung -->
+    <!--
     <div id="login">
         <h2>Passwort eingeben</h2>
-        <input type="password" id="password" placeholder="Passwort">
-        <button onclick="checkPassword()">Login</button>
+        <input type="password" id="password" placeholder="Passwort" aria-label="Passwort eingeben">
+        <button onclick="checkPassword()" id="loginButton">Login</button>
+        <div id="errorMessage" class="error-message"></div>
     </div>
+    -->
 
-    <!-- Der gesamte Inhalt der Website (wird erst nach Passwort eingegeben sichtbar) -->
-    <div id="content" style="display:none;">
+    <!-- Der gesamte Inhalt der Website wird jetzt direkt angezeigt -->
+    <div id="content">
         <div class="container">
             <h1>Nina & Stephan heiraten!</h1>
             <p>Kommt und feiert mit uns am <b>12. Juli 2025</b></p>
@@ -100,49 +115,73 @@
                 <img src="https://source.unsplash.com/600x400/?love,couple" alt="Nina & Stephan 3">
             </div>
             
+
+
+            <!-- Ort & Uhrzeit mit Rückmeldung Block -->
             <div class="info-wrapper">
                 <div class="details">
                     <h2>Ort & Uhrzeit</h2>
-                    <p><b>Freie Trauung:</b> 15:00 Uhr - Löwenstraße 103 A, 70597 Degerloch</p>
-                    <p><b>Feier:</b> Ab 17 Uhr - Württembergischer Automobilclub, Mörikestraße 30, 70178 Stuttgart</p>
+                    <p><b>Freie Trauung:</b> 15:00 Uhr </p>
+                    <p><a href="https://www.google.com/maps?q=Löwenstraße+103+A,70597+Degerloch" target="_blank">Löwenstraße 103 A, 70597 Degerloch</a></p>
+
+                    <p><b>Feier:</b> Ab 17 Uhr </p>
+                    <p><a href="https://www.google.com/maps?q=Württembergischer+Automobilclub,+Mörikestraße+30,+70178+Stuttgart" target="_blank">Württembergischer Automobilclub, Mörikestraße 30, 70178 Stuttgart</a></p>
                 </div>
+
+                <div class="info">
+                    <h2>Rückmeldung</h2>
+                    <p>Bitte gebt uns bis <b>27. Mai 2025</b> über dieses <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxVwgSbSHr2UR-JkIgNIfPR4PyoWOpVEog0OXQcaCecqMuOA/viewform?usp=header" target="_blank">Formular</a> Bescheid, ob ihr dabei seid!</p>
+                    <p>Falls nicht, bitte eigenen Stuhl und Vesper mitbringen. 😉</p>
+                </div>
+            </div>
+
+            <!-- Parken mit Unterkunft Block -->
+            <div class="info-wrapper">
+                <div class="info">
+                    <h2>Parken</h2>
+                    <p>Autos können an der freien Trauung im Wohngebiet geparkt werden. An der Feierlocation auch, oder in folgenden Parkhäusern:</p>
+                    <p><a href="https://www.google.com/maps?q=Parkhaus+am+Marienplatz" target="_blank">Parkhaus am Marienplatz</a></p>
+                    <p><a href="https://www.google.com/maps?q=Tiefgarage+Südtor" target="_blank">Tiefgarage Südtor</a></p>
+                </div>
+
+                <div class="info">
+                    <h2>Unterkunft:</h2>
+                    <p>Solltet ihr eine Unterkunft benötigen, bieten sich folgende Hotels an:</p>
+                    <p><a href="https://www.google.com/maps?q=Hotel+Park+Inn+by+Radisson+Stuttgart" target="_blank">Hotel Park Inn by Radisson Stuttgart</a></p>
+                    <p><a href="https://www.google.com/maps?q=Ibis+Hotel+Centrum+Stuttgart" target="_blank">Ibis Hotel Centrum Stuttgart</a></p>
+                </div>
+            </div>
+            
+            <!-- Dresscode und Geschenkwunsch Block -->
+            <div class="info-wrapper">
                 <div class="info">
                     <h2>Dresscode</h2>
                     <p>Festlich chic</p>
                 </div>
-            </div>
-            
-            <div class="info-wrapper">
+                
                 <div class="info">
                     <h2>Geschenkwunsch</h2>
                     <p>Das größte Geschenk ist, dass ihr mit uns feiert! 🎉 Falls ihr uns trotzdem noch eine kleine Freude machen möchtet, freuen wir uns über einen Beitrag zu unserer gemeinsamen Zukunft.</p>
-                </div>
-                <div class="info">
-                    <h2>Unterkunft</h2>
-                    <p>Hotel Park Inn by Radisson Stuttgart<br> Ibis Hotel Centrum Stuttgart</p>
-                </div>
-            </div>
-            
-            <div class="info-wrapper">
-                <div class="info">
-                    <h2>Parken</h2>
-                    <p>Parkplätze vor Ort oder im Parkhaus XY</p>
-                </div>
-                <div class="info">
-                    <h2>Rückmeldung</h2>
-                    <p>Bitte gebt uns bis <b>15. Mai 2025</b> über dieses Formular Bescheid, ob ihr dabei seid!</p>
-                    <p>Falls nicht, bitte eigenen Stuhl und Vesper mitbringen. 😉</p>
                 </div>
             </div>
 
             <div class="info">
                 <h2>Fragen?</h2>
                 <p>Wendet euch gerne an:</p>
-                <p><b>Kathrina Wagner</b> (<a href="https://wa.me/49123456789" style="color: #f3547c;">WhatsApp</a>)</p>
-                <p><b>Christoph Meier</b> (<a href="https://wa.me/49876543210" style="color: #f3547c;">WhatsApp</a>)</p>
+                <p><b>Kathrina Wagner</b> (<a href="https://wa.me/4917682474532?text=Hallo%20Kathrina,%20ich%20habe%20eine%20Frage.." style="color: #f3547c;" target="_blank">WhatsApp</a>)</p>
+                <p><b>Christoph Meier</b> (<a href="https://wa.me/4915142898955?text=Hallo%20Christoph,%20ich%20habe%20eine%20Frage.." style="color: #f3547c;" target="_blank">WhatsApp</a>)</p>
+
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Ninas+und+Stephans+Hochzeit&dates=20250712/20250713&details=Feiere+mit+uns!&location=Löwenstraße+103+A,+70597+Degerloch" target="_blank">In Google-Kalender speichern</a>
+                <a href="URL-zur-Datei/NinasUndStephansHochzeit.ics" download="NinasUndStephansHochzeit.ics">In Kalender speichern (.ics)</a>
+
+
+
+           
+           
+           
             </div>
             
-            <a href="#" class="btn">Zur Zu- & Absage</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxVwgSbSHr2UR-JkIgNIfPR4PyoWOpVEog0OXQcaCecqMuOA/viewform?usp=header" class="btn">Zur Zu- & Absage</a>
         </div>
     </div>
 
@@ -161,11 +200,21 @@
         // Passwortschutz-Funktion
         function checkPassword() {
             const password = document.getElementById('password').value;
+            const loginButton = document.getElementById('loginButton');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Button deaktivieren während der Überprüfung
+            loginButton.disabled = true;
+
             if (password === 'siebenundzwanzig') {
                 document.getElementById('login').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
             } else {
-                alert('Falsches Passwort!');
+                errorMessage.textContent = 'Falsches Passwort! Versuche es noch einmal.';
+                // Button nach einer kurzen Verzögerung wieder aktivieren
+                setTimeout(function() {
+                    loginButton.disabled = false;
+                }, 1500);
             }
         }
     </script>

@@ -9,7 +9,7 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #5e77da;
+            background-color: #cce0c5;
             color: #cce0c5;
             text-align: center;
         }
@@ -22,13 +22,17 @@
             font-size: 2.5rem;
             color: #f3547c;
         }
+        h3 {
+            font-size: 1.5rem;
+            color: #f3547c;
+        }
         .info-wrapper {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
         }
         .info, .details {
-            background: rgba(255, 255, 255, 0.2); 
+            background: #7E92E1; 
             padding: 15px;
             border-radius: 10px;
             margin: 10px;
@@ -92,7 +96,6 @@
 <body>
 
     <!-- Passwortschutz Form -->
-    <!-- Temporär auskommentiert für die Entwicklung -->
     <div id="login">
         <h2>Passwort eingeben</h2>
         <input type="password" id="password" placeholder="Passwort" aria-label="Passwort eingeben">
@@ -100,11 +103,12 @@
         <div id="errorMessage" class="error-message"></div>
     </div>
 
+
     <!-- Der gesamte Inhalt der Website wird jetzt direkt angezeigt -->
     <div id="content">
         <div class="container">
             <h1>Nina & Stephan heiraten!</h1>
-            <p>Kommt und feiert mit uns am <b>12. Juli 2025</b></p>
+            <h3><p>Kommt und feiert mit uns am <b>12. Juli 2025</b></p></h3>
             
             <!-- Slideshow mit Platzhalterbildern -->
             <div class="slideshow-container">

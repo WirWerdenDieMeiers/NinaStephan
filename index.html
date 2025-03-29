@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hochzeit von Nina & Stephan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #5e77da;
+            color: #cce0c5;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #f3547c;
+        }
+        .info-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .info, .details {
+            background: rgba(255, 255, 255, 0.2); /* Etwas hellere Kacheln */
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px;
+            flex: 1;
+            min-width: 300px;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .slideshow-container img {
+            width: 100%;
+            display: none;
+            transition: opacity 1s ease-in-out;
+        }
+        .slideshow-container img.active {
+            display: block;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #f3547c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #f5728d;
+        }
+
+        /* Passwortschutz Styling */
+        #login {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Passwortschutz Form -->
+    <div id="login">
+        <h2>Passwort eingeben</h2>
+        <input type="password" id="password" placeholder="Passwort">
+        <button onclick="checkPassword()">Login</button>
+    </div>
+
+    <!-- Der gesamte Inhalt der Website (wird erst nach Passwort eingegeben sichtbar) -->
+    <div id="content" style="display:none;">
+        <div class="container">
+            <h1>Nina & Stephan heiraten!</h1>
+            <p>Kommt und feiert mit uns am <b>12. Juli 2025</b></p>
+            
+            <!-- Slideshow mit Platzhalterbildern -->
+            <div class="slideshow-container">
+                <img src="https://source.unsplash.com/600x400/?couple,wedding" class="active" alt="Nina & Stephan 1">
+                <img src="https://source.unsplash.com/600x400/?bride,groom" alt="Nina & Stephan 2">
+                <img src="https://source.unsplash.com/600x400/?love,couple" alt="Nina & Stephan 3">
+            </div>
+            
+            <div class="info-wrapper">
+                <div class="details">
+                    <h2>Ort & Uhrzeit</h2>
+                    <p><b>Freie Trauung:</b> 15:00 Uhr - Löwenstraße 103 A, 70597 Degerloch</p>
+                    <p><b>Feier:</b> Ab 17 Uhr - Württembergischer Automobilclub, Mörikestraße 30, 70178 Stuttgart</p>
+                </div>
+                <div class="info">
+                    <h2>Dresscode</h2>
+                    <p>Festlich chic</p>
+                </div>
+            </div>
+            
+            <div class="info-wrapper">
+                <div class="info">
+                    <h2>Geschenkwunsch</h2>
+                    <p>Das größte Geschenk ist, dass ihr mit uns feiert! 🎉 Falls ihr uns trotzdem noch eine kleine Freude machen möchtet, freuen wir uns über einen Beitrag zu unserer gemeinsamen Zukunft.</p>
+                </div>
+                <div class="info">
+                    <h2>Unterkunft</h2>
+                    <p>Hotel Park Inn by Radisson Stuttgart<br> Ibis Hotel Centrum Stuttgart</p>
+                </div>
+            </div>
+            
+            <div class="info-wrapper">
+                <div class="info">
+                    <h2>Parken</h2>
+                    <p>Parkplätze vor Ort oder im Parkhaus XY</p>
+                </div>
+                <div class="info">
+                    <h2>Rückmeldung</h2>
+                    <p>Bitte gebt uns bis <b>15. Mai 2025</b> über dieses Formular Bescheid, ob ihr dabei seid!</p>
+                    <p>Falls nicht, bitte eigenen Stuhl und Vesper mitbringen. 😉</p>
+                </div>
+            </div>
+
+            <div class="info">
+                <h2>Fragen?</h2>
+                <p>Wendet euch gerne an:</p>
+                <p><b>Kathrina Wagner</b> (<a href="https://wa.me/49123456789" style="color: #f3547c;">WhatsApp</a>)</p>
+                <p><b>Christoph Meier</b> (<a href="https://wa.me/49876543210" style="color: #f3547c;">WhatsApp</a>)</p>
+            </div>
+            
+            <a href="#" class="btn">Zur Zu- & Absage</a>
+        </div>
+    </div>
+
+    <script>
+        let index = 0;
+
+        // Slideshow-Funktion
+        function showSlides() {
+            let slides = document.querySelectorAll(".slideshow-container img");
+            slides.forEach(slide => slide.classList.remove("active"));
+            index = (index + 1) % slides.length;
+            slides[index].classList.add("active");
+        }
+        setInterval(showSlides, 3000);
+
+        // Passwortschutz-Funktion
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password === 'siebenundzwanzig') {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                alert('Falsches Passwort!');
+            }
+        }
+    </script>
+</body>
+</html>

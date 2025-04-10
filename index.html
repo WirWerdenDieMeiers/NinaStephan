@@ -22,7 +22,6 @@
             font-size: 2.5rem;
             color: #f3547c;
         }
-        
         h3 {
             font-size: 1.5rem;
             color: #f3547c;
@@ -69,12 +68,10 @@
             background: #f5728d;
         }
 
-        /* Für eine sanfte Ladeanimation */
         #content {
-            display: block; /* Sichtbar für Entwicklung */
+            display: none;
         }
-        
-        /* Passwortschutz */
+
         #login {
             position: absolute;
             top: 50%;
@@ -97,15 +94,12 @@
 <body>
 
     <!-- Passwortschutz Form -->
-    <!-- Temporär auskommentiert für die Entwicklung -->
-    <!--
     <div id="login">
         <h2>Passwort eingeben</h2>
         <input type="password" id="password" placeholder="Passwort" aria-label="Passwort eingeben">
         <button onclick="checkPassword()" id="loginButton">Login</button>
         <div id="errorMessage" class="error-message"></div>
     </div>
-    
 
     <!-- Der gesamte Inhalt der Website wird jetzt direkt angezeigt -->
     <div id="content">
@@ -119,8 +113,6 @@
                 <img src="https://source.unsplash.com/600x400/?bride,groom" alt="Nina & Stephan 2">
                 <img src="https://source.unsplash.com/600x400/?love,couple" alt="Nina & Stephan 3">
             </div>
-            
-
 
             <!-- Ort & Uhrzeit mit Rückmeldung Block -->
             <div class="info-wrapper">
@@ -178,12 +170,6 @@
 
                 <p><a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Ninas+und+Stephans+Hochzeit&dates=20250712/20250713&details=Feiere+mit+uns!&location=Löwenstraße+103+A,+70597+Degerloch" target="_blank">In Google-Kalender speichern</a></p>
                 <p><a href="URL-zur-Datei/NinasUndStephansHochzeit.ics" download="NinasUndStephansHochzeit.ics">In Kalender speichern (.ics)</a></p>
-
-
-
-           
-           
-           
             </div>
             
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxVwgSbSHr2UR-JkIgNIfPR4PyoWOpVEog0OXQcaCecqMuOA/viewform?usp=header" class="btn">Zur Zu- & Absage</a>
@@ -191,17 +177,6 @@
     </div>
 
     <script>
-        let index = 0;
-
-        // Slideshow-Funktion
-        function showSlides() {
-            let slides = document.querySelectorAll(".slideshow-container img");
-            slides.forEach(slide => slide.classList.remove("active"));
-            index = (index + 1) % slides.length;
-            slides[index].classList.add("active");
-        }
-        setInterval(showSlides, 3000);
-
         // Passwortschutz-Funktion
         function checkPassword() {
             const password = document.getElementById('password').value;

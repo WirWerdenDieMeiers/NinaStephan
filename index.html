@@ -1,233 +1,45 @@
-<!DOCTYPE html>
-<html lang="de">
+function checkPassword() {
+    const password = document.getElementById('password').value;
+    const loginButton = document.getElementById('loginButton');
+    const errorMessage = document.getElementById('errorMessage');
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hochzeit von Nina & Stephan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #cce0c5;
-            color: #cce0c5;
-            text-align: center;
-        }
+    loginButton.disabled = true;
 
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-        }
+    if (password === 'siebenundzwanzig') {
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
 
-        h1 {
-            font-size: 2.5rem;
-            color: #f3547c;
-        }
+        // Jetzt hier die Slideshow initialisieren
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slideshow-container img');
 
-        h3 {
-            font-size: 1.5rem;
-            color: #f3547c;
-        }
-
-        .info-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .info,
-        .details {
-            background: #7E92E1;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 10px;
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .slideshow-container {
-            position: relative;
-            max-width: 600px;
-            margin: 20px auto;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .slideshow-container img {
-            width: 100%;
-            display: none;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .slideshow-container img.active {
-            display: block;
-        }
-
-        .slideshow-container button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0,0,0,0.4);
-            color: white;
-            border: none;
-            padding: 10px;
-            font-size: 24px;
-            cursor: pointer;
-            border-radius: 50%;
-            z-index: 2;
-        }
-
-        .slideshow-container .prev {
-            left: 10px;
-        }
-
-        .slideshow-container .next {
-            right: 10px;
-        }
-
-        .slideshow-container button:hover {
-            background-color: rgba(0,0,0,0.7);
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #f3547c;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #f5728d;
-        }
-
-        #content {
-            display: none;
-        }
-
-        #login {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            color: #fff;
-            text-align: center;
-        }
-
-        .error-message {
-            color: red;
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Passwortschutz Form -->
-    <div id="login">
-        <h2>Passwort eingeben</h2>
-        <input type="password" id="password" placeholder="Passwort" aria-label="Passwort eingeben">
-        <button onclick="checkPassword()" id="loginButton">Login</button>
-        <div id="errorMessage" class="error-message"></div>
-    </div>
-
-    <!-- Der gesamte Inhalt der Website wird jetzt direkt angezeigt -->
-    <div id="content">
-        <div class="container">
-            <h1>Nina & Stephan heiraten!</h1>
-            <h3>
-                <p>Kommt und feiert mit uns am <b>12. Juli 2025</b></p>
-            </h3>
-
-            <!-- Slideshow mit eigenen Bildern -->
-            <div class="slideshow-container">
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-
-                <img src="images/liebe1.jpg" alt="Hochzeitsbild 1"> 
-                <img src="images/liebe3.jpg" alt="Hochzeitsbild 3">
-                <img src="images/liebe4.jpg" alt="Hochzeitsbild 4">
-                <img src="images/liebe5.jpg" alt="Hochzeitsbild 5">
-                <img src="images/liebe6.jpg" alt="Hochzeitsbild 6">
-                <img src="images/liebe7.jpg" alt="Hochzeitsbild 7">
-                <img src="images/liebe8.jpg" alt="Hochzeitsbild 8">
-                <img src="images/liebe9.jpg" alt="Hochzeitsbild 9">
-                <img src="images/liebe10.jpg" alt="Hochzeitsbild 10">
-                <img src="images/liebe11.jpg" alt="Hochzeitsbild 11">
-                <img src="images/liebe12.jpg" alt="Hochzeitsbild 12">
-                <img src="images/liebe13.jpg" alt="Hochzeitsbild 13">
-                <img src="images/liebe14.jpg" alt="Hochzeitsbild 14">
-                <img src="images/liebe15.jpg" alt="Hochzeitsbild 15">
-                <img src="images/liebe16.jpg" alt="Hochzeitsbild 16">
-                <img src="images/liebe17.jpg" alt="Hochzeitsbild 17">
-                <img src="images/liebe18.jpg" alt="Hochzeitsbild 18">
-                <img src="images/liebe19.jpg" alt="Hochzeitsbild 19">
-                <img src="images/liebe20.jpg" alt="Hochzeitsbild 20">
-            </div>
-
-            <!-- Der restliche Inhalt bleibt unverändert ... -->
-        </div>
-    </div>
-
-    <script>
-        // Passwortschutz-Funktion + Slideshow-Initialisierung
-        function checkPassword() {
-            const password = document.getElementById('password').value;
-            const loginButton = document.getElementById('loginButton');
-            const errorMessage = document.getElementById('errorMessage');
-
-            loginButton.disabled = true;
-
-            if (password === 'siebenundzwanzig') {
-                document.getElementById('login').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-
-                // Slideshow initialisieren
-                let currentSlide = 0;
-                const slides = document.querySelectorAll('.slideshow-container img');
-                const nextButton = document.querySelector('.next');
-                const prevButton = document.querySelector('.prev');
-
-                function showSlide(index) {
-                    slides.forEach((slide, i) => {
-                        slide.classList.remove('active');
-                        if (i === index) {
-                            slide.classList.add('active');
-                        }
-                    });
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
                 }
-
-                function nextSlide() {
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    showSlide(currentSlide);
-                }
-
-                function prevSlide() {
-                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                    showSlide(currentSlide);
-                }
-
-                nextButton.addEventListener('click', nextSlide);
-                prevButton.addEventListener('click', prevSlide);
-
-                showSlide(currentSlide); // Startbild anzeigen
-            } else {
-                errorMessage.textContent = 'Falsches Passwort! Versuche es noch einmal.';
-                setTimeout(function () {
-                    loginButton.disabled = false;
-                }, 1500);
-            }
+            });
         }
-    </script>
-</body>
 
-</html>
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        document.querySelector('.next').addEventListener('click', nextSlide);
+        document.querySelector('.prev').addEventListener('click', prevSlide);
+
+        showSlide(currentSlide); // <- wichtig
+    } else {
+        errorMessage.textContent = 'Falsches Passwort! Versuche es noch einmal.';
+        setTimeout(function () {
+            loginButton.disabled = false;
+        }, 1500);
+    }
+}

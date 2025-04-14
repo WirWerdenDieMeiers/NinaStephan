@@ -57,16 +57,12 @@
 
         .slideshow-container img {
             width: 100%;
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
+            display: none;
             transition: opacity 1s ease-in-out;
         }
 
         .slideshow-container img.active {
-            opacity: 1;
-            position: relative;
+            display: block;
         }
 
         .slideshow-container button {
@@ -136,6 +132,7 @@
 
 <body>
 
+    <!-- Passwortschutz Form -->
     <div id="login">
         <h2>Passwort eingeben</h2>
         <input type="password" id="password" placeholder="Passwort" aria-label="Passwort eingeben">
@@ -143,6 +140,7 @@
         <div id="errorMessage" class="error-message"></div>
     </div>
 
+    <!-- Geschützter Inhalt -->
     <div id="content">
         <div class="container">
             <h1>Nina & Stephan heiraten!</h1>
@@ -150,12 +148,12 @@
                 <p>Kommt und feiert mit uns am <b>12. Juli 2025</b></p>
             </h3>
 
+            <!-- Slideshow -->
             <div class="slideshow-container">
                 <button class="prev">&#10094;</button>
                 <button class="next">&#10095;</button>
 
-                <!-- Alle Bilder -->
-                <img src="images/liebe1.jpg" class="active" alt="Hochzeitsbild 1">
+                <img src="images/liebe1.jpg" alt="Hochzeitsbild 1">
                 <img src="images/liebe3.jpg" alt="Hochzeitsbild 3">
                 <img src="images/liebe4.jpg" alt="Hochzeitsbild 4">
                 <img src="images/liebe5.jpg" alt="Hochzeitsbild 5">
@@ -176,63 +174,63 @@
                 <img src="images/liebe20.jpg" alt="Hochzeitsbild 20">
             </div>
 
-            <div class="info-wrapper">
-                <div class="details">
-                    <h2>Ort & Uhrzeit</h2>
-                    <p><b>Freie Trauung:</b> 15:00 Uhr </p>
-                    <p><a href="https://www.google.com/maps?q=Löwenstraße+99,70597+Degerloch" target="_blank" rel="noopener noreferrer">Löwenstraße 99, 70597 Degerloch</a></p>
+            <!-- Inhaltliche Blöcke (Ort, Rückmeldung, Parken etc.) -->
+            <!-- ... (hier bleibt alles gleich wie bei dir vorher) ... -->
 
-                    <p><b>Feier:</b> Ab 17 Uhr </p>
-                    <p><a href="https://www.google.com/maps?q=Württembergischer+Automobilclub,+Mörikestraße+30,+70178+Stuttgart" target="_blank" rel="noopener noreferrer">Württembergischer Automobilclub, Mörikestraße 30, 70178 Stuttgart</a></p>
-                </div>
-
-                <div class="info">
-                    <h2>Rückmeldung</h2>
-                    <p>Bitte gebt uns bis <b>27. Mai 2025</b> über dieses <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxVwgSbSHr2UR-JkIgNIfPR4PyoWOpVEog0OXQcaCecqMuOA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Formular</a> Bescheid, ob ihr dabei seid!</p>
-                    <p>Falls nicht, bitte eigenen Stuhl und Vesper mitbringen. 😉</p>
-                </div>
-            </div>
-
-            <div class="info-wrapper">
-                <div class="info">
-                    <h2>Parken</h2>
-                    <p>Autos können an der freien Trauung im Wohngebiet geparkt werden. An der Feierlocation auch, oder in folgenden Parkhäusern:</p>
-                    <p><a href="https://www.google.com/maps?q=Parkhaus+am+Marienplatz" target="_blank" rel="noopener noreferrer">Parkhaus am Marienplatz</a></p>
-                    <p><a href="https://www.google.com/maps?q=Tiefgarage+Südtor" target="_blank" rel="noopener noreferrer">Tiefgarage Südtor</a></p>
-                </div>
-
-                <div class="info">
-                    <h2>Unterkunft</h2>
-                    <p>Solltet ihr eine Unterkunft benötigen, bieten sich folgende Hotels an:</p>
-                    <p><a href="https://www.google.com/maps?q=Hotel+Park+Inn+by+Radisson+Stuttgart" target="_blank" rel="noopener noreferrer">Hotel Park Inn by Radisson Stuttgart</a></p>
-                    <p><a href="https://www.google.com/maps?q=Ibis+Hotel+Centrum+Stuttgart" target="_blank" rel="noopener noreferrer">Ibis Hotel Centrum Stuttgart</a></p>
-                </div>
-            </div>
-
-            <div class="info-wrapper">
-                <div class="info">
-                    <h2>Dresscode</h2>
-                    <p>Festlich chic</p>
-                </div>
-
-                <div class="info">
-                    <h2>Geschenkwunsch</h2>
-                    <p>Das größte Geschenk ist, dass ihr mit uns feiert! 🎉 Falls ihr uns trotzdem noch eine kleine Freude machen möchtet, freuen wir uns über einen Beitrag zu unserer gemeinsamen Zukunft.</p>
-                </div>
-            </div>
-
-            <div class="info">
-                <h2>Fragen?</h2>
-                <p>Wendet euch gerne an:</p>
-                <p><b>Kathrina Wagner</b> (<a href="https://wa.me/4917682474532?text=Hallo%20Kathrina,%20ich%20habe%20eine%20Frage.." target="_blank" rel="noopener noreferrer" style="color: #f3547c;">WhatsApp</a>)</p>
-                <p><b>Christoph Meier</b> (<a href="https://wa.me/4915142898955?text=Hallo%20Christoph,%20ich%20habe%20eine%20Frage.." target="_blank" rel="noopener noreferrer" style="color: #f3547c;">WhatsApp</a>)</p>
-
-                <p><a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Ninas+und+Stephans+Hochzeit&dates=20250712/20250713&details=Feiere+mit+uns!&location=Löwenstraße+103+A,+70597+Degerloch" target="_blank" rel="noopener noreferrer">In Google-Kalender speichern</a></p>
-                <p><a href="URL-zur-Datei/NinasUndStephansHochzeit.ics" target="_blank" rel="noopener noreferrer" download="NinasUndStephansHochzeit.ics">In Kalender speichern (.ics)</a></p>
-            </div>
-
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxVwgSbSHr2UR-JkIgNIfPR4PyoWOpVEog0OXQcaCecqMuOA/viewform?usp=header" class="btn" target="_blank" rel="noopener noreferrer">Zur Zu- & Absage</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxVwgSbSHr2UR-JkIgNIfPR4PyoWOpVEog0OXQcaCecqMuOA/viewform?usp=header"
+                class="btn">Zur Zu- & Absage</a>
         </div>
     </div>
 
     <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const loginButton = document.getElementById('loginButton');
+            const errorMessage = document.getElementById('errorMessage');
+
+            loginButton.disabled = true;
+
+            if (password === 'siebenundzwanzig') {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                initSlideshow();
+            } else {
+                errorMessage.textContent = 'Falsches Passwort! Versuche es noch einmal.';
+                setTimeout(function () {
+                    loginButton.disabled = false;
+                }, 1500);
+            }
+        }
+
+        function initSlideshow() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slideshow-container img');
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    if (i === index) {
+                        slide.classList.add('active');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            document.querySelector('.next').addEventListener('click', nextSlide);
+            document.querySelector('.prev').addEventListener('click', prevSlide);
+
+            showSlide(currentSlide);
+        }
+    </script>
+</body>
+
+</html>

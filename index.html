@@ -11,7 +11,7 @@
             margin: 0;
             font-family: 'Poppins', sans-serif;
             background-color: #cce0c5;
-            color: #cce0c5;
+            color: #333;
             text-align: center;
         }
 
@@ -135,7 +135,8 @@
     <!-- Passwortschutz Form -->
     <div id="login">
         <h2>Passwort eingeben</h2>
-        <input type="password" id="password" placeholder="Passwort" aria-label="Passwort eingeben">
+        <input type="password" id="password" placeholder="Passwort" aria-label="Passwort eingeben"
+            onkeydown="if(event.key === 'Enter') checkPassword()">
         <button onclick="checkPassword()" id="loginButton">Login</button>
         <div id="errorMessage" class="error-message"></div>
     </div>
@@ -144,9 +145,7 @@
     <div id="content">
         <div class="container">
             <h1>Nina & Stephan heiraten!</h1>
-            <h3>
-                <p>Kommt und feiert mit uns am <b>12. Juli 2025</b></p>
-            </h3>
+            <h3>Kommt und feiert mit uns am <b>12. Juli 2025</b></h3>
 
             <!-- Slideshow mit eigenen Bildern -->
             <div class="slideshow-container">
@@ -300,9 +299,7 @@
         document.querySelector('.next').addEventListener('click', nextSlide);
         document.querySelector('.prev').addEventListener('click', prevSlide);
 
-        // <<< Diese Zeile ergänzen:
         showSlide(currentSlide);
-        
     </script>
 </body>
 

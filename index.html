@@ -7,16 +7,11 @@
     <title>Hochzeit von Nina & Stephan</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        html, body {
-            width: 100%;
-            overflow-x: hidden;
-        }
-
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
             background-color: #cce0c5;
-            color: #333;  /* Textfarbe geändert für bessere Sichtbarkeit */
+            color: #cce0c5;
             text-align: center;
         }
 
@@ -40,7 +35,6 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 20px;
         }
 
         .info,
@@ -50,9 +44,7 @@
             border-radius: 10px;
             margin: 10px;
             flex: 1;
-            flex-basis: 300px;
-            min-width: 0;
-            box-sizing: border-box;
+            min-width: 300px;
         }
 
         .slideshow-container {
@@ -128,6 +120,7 @@
             border-radius: 10px;
             color: #fff;
             text-align: center;
+            z-index: 1000;
         }
 
         .error-message {
@@ -186,7 +179,6 @@
                 <img src="images/liebe23.PNG" alt="Hochzeitsbild 23">  
             </div>
         
-
             <!-- Ort & Uhrzeit mit Rückmeldung Block -->
             <div class="info-wrapper">
                 <div class="details">
@@ -261,4 +253,60 @@
                         Kalender speichern (.ics)</a></p>
             </div>
 
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxVwgSbSHr2UR-JkIgNIfPR4PyoWOpVEog0OXQcaCec
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxVwgSbSHr2UR-JkIgNIfPR4PyoWOpVEog0OXQcaCecqMuOA/viewform?usp=header"
+                class="btn" target="_blank">Zur Zu- & Absage</a>
+        </div>
+    </div>
+
+    <script>
+        // Passwortschutz-Funktion
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const loginButton = document.getElementById('loginButton');
+            const errorMessage = document.getElementById('errorMessage');
+
+            loginButton.disabled = true;
+
+            if (password === 'siebenundzwanzig') {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                errorMessage.textContent = 'Falsches Passwort! Versuche es noch einmal.';
+                setTimeout(function () {
+                    loginButton.disabled = false;
+                }, 1500);
+            }
+        }
+
+        // Slideshow-Funktion
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slideshow-container img');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        document.querySelector('.next').addEventListener('click', nextSlide);
+        document.querySelector('.prev').addEventListener('click', prevSlide);
+
+        // <<< Diese Zeile ergänzen:
+        showSlide(currentSlide);
+    </script>
+</body>
+
+</html>

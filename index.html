@@ -1,313 +1,177 @@
-<!DOCTYPE html>
-<html lang="de">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #cce0c5;
+        color: #cce0c5;
+        text-align: center;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hochzeit von Nina & Stephan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #cce0c5;
-            color: #cce0c5;
-            text-align: center;
-        }
+    .container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-        }
+    h1 {
+        font-size: 2.5rem;
+        color: #f3547c;
+    }
 
+    h3 {
+        font-size: 1.5rem;
+        color: #f3547c;
+    }
+
+    .info-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .info,
+    .details {
+        background: #7E92E1;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 10px;
+        flex: 1;
+        min-width: 280px;
+        box-sizing: border-box;
+    }
+
+    .slideshow-container {
+        position: relative;
+        max-width: 100%;
+        margin: 20px auto;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .slideshow-container img {
+        width: 100%;
+        display: none;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow-container img.active {
+        display: block;
+    }
+
+    .slideshow-container button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    .slideshow-container .prev {
+        left: 10px;
+    }
+
+    .slideshow-container .next {
+        right: 10px;
+    }
+
+    .slideshow-container button:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #f3547c;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #f5728d;
+    }
+
+    #content {
+        display: none;
+    }
+
+    #login {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #7E92E1;
+        padding: 30px 20px;
+        border-radius: 15px;
+        color: #fff;
+        text-align: center;
+        width: 90%;
+        max-width: 350px;
+        box-sizing: border-box;
+    }
+
+    #login h2 {
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+        color: #f3547c;
+    }
+
+    #password {
+        padding: 10px;
+        width: 100%;
+        border-radius: 8px;
+        border: none;
+        margin-bottom: 15px;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+
+    #loginButton {
+        background: #f3547c;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    #loginButton:hover {
+        background: #f5728d;
+    }
+
+    .error-message {
+        color: #ffdddd;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
         h1 {
-            font-size: 2.5rem;
-            color: #f3547c;
+            font-size: 1.8rem;
         }
 
         h3 {
-            font-size: 1.5rem;
-            color: #f3547c;
-        }
-
-        .info-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            font-size: 1.2rem;
         }
 
         .info,
         .details {
-            background: #7E92E1;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 10px;
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .slideshow-container {
-            position: relative;
-            max-width: 600px;
-            margin: 20px auto;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .slideshow-container img {
-            width: 100%;
-            display: none;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .slideshow-container img.active {
-            display: block;
+            min-width: 100%;
         }
 
         .slideshow-container button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0,0,0,0.4);
-            color: white;
-            border: none;
-            padding: 10px;
-            font-size: 24px;
-            cursor: pointer;
-            border-radius: 50%;
-            z-index: 2;
+            padding: 8px;
+            font-size: 18px;
         }
-
-        .slideshow-container .prev {
-            left: 10px;
-        }
-
-        .slideshow-container .next {
-            right: 10px;
-        }
-
-        .slideshow-container button:hover {
-            background-color: rgba(0,0,0,0.7);
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #f3547c;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #f5728d;
-        }
-
-        #content {
-            display: none;
-        }
-
-        #login {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            color: #fff;
-            text-align: center;
-        }
-
-        .error-message {
-            color: red;
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Passwortschutz Form -->
-    <div id="login">
-        <h2>Passwort eingeben</h2>
-        <input type="password" id="password" placeholder="Passwort" aria-label="Passwort eingeben">
-        <button onclick="checkPassword()" id="loginButton">Login</button>
-        <div id="errorMessage" class="error-message"></div>
-    </div>
-
-    <!-- Der gesamte Inhalt der Website wird jetzt direkt angezeigt -->
-    <div id="content">
-        <div class="container">
-            <h1>Nina & Stephan heiraten!</h1>
-            <h3>
-                <p>Kommt und feiert mit uns am <b>12. Juli 2025</b></p>
-            </h3>
-
-            <!-- Slideshow mit eigenen Bildern -->
-            <div class="slideshow-container">
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-
-                <img src="images/liebe1.jpg" class="active" alt="Hochzeitsbild 1">
-                <img src="images/liebe2.jpg" alt="Hochzeitsbild 2">
-                <img src="images/liebe3.jpg" alt="Hochzeitsbild 3">
-                <img src="images/liebe4.jpg" alt="Hochzeitsbild 4">
-                <img src="images/liebe5.PNG" alt="Hochzeitsbild 5">
-                <img src="images/liebe6.jpg" alt="Hochzeitsbild 6">
-                <img src="images/liebe7.jpg" alt="Hochzeitsbild 7">
-                <img src="images/liebe8.jpg" alt="Hochzeitsbild 8">
-                <img src="images/liebe9.PNG" alt="Hochzeitsbild 9">
-                <img src="images/liebe10.jpg" alt="Hochzeitsbild 10">
-                <img src="images/liebe11.jpg" alt="Hochzeitsbild 11">
-                <img src="images/liebe12.jpg" alt="Hochzeitsbild 12">
-                <img src="images/liebe13.jpg" alt="Hochzeitsbild 13">
-                <img src="images/liebe14.jpg" alt="Hochzeitsbild 14">
-                <img src="images/liebe15.jpg" alt="Hochzeitsbild 15">
-                <img src="images/liebe16.PNG" alt="Hochzeitsbild 16">
-                <img src="images/liebe17.jpg" alt="Hochzeitsbild 17">
-                <img src="images/liebe18.jpg" alt="Hochzeitsbild 18">
-                <img src="images/liebe19.PNG" alt="Hochzeitsbild 19">
-                <img src="images/liebe20.jpg" alt="Hochzeitsbild 20">
-                <img src="images/liebe21.PNG" alt="Hochzeitsbild 21">
-                <img src="images/liebe22.jpg" alt="Hochzeitsbild 22">
-                <img src="images/liebe23.PNG" alt="Hochzeitsbild 23">  
-            </div>
-        
-
-            <!-- Ort & Uhrzeit mit Rückmeldung Block -->
-            <div class="info-wrapper">
-                <div class="details">
-                    <h2>Ort & Uhrzeit</h2>
-                    <p><b>Freie Trauung:</b> 15:00 Uhr </p>
-                    <p><a href="https://www.google.com/maps?q=Löwenstraße+99,70597+Degerloch"
-                            target="_blank">Löwenstraße 99, 70597 Degerloch</a></p>
-
-                    <p><b>Gefolgt von der Feier:</b> </p>
-                    <p><a href="https://www.google.com/maps?q=Württembergischer+Automobilclub,+Mörikestraße+30,+70178+Stuttgart"
-                            target="_blank">Württembergischer Automobilclub, Mörikestraße 30, 70178 Stuttgart</a></p>
-                </div>
-
-                <div class="info">
-                    <h2>Rückmeldung</h2>
-                    <p>Bitte gib uns bis zum <b>27. Mai 2025</b> über dieses <a
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSdxVwgSbSHr2UR-JkIgNIfPR4PyoWOpVEog0OXQcaCecqMuOA/viewform?usp=header"
-                            target="_blank">Formular</a> Bescheid, ob Du dabei bist!</p>
-                    <p>Wir freuen uns sehr auf Dich!</p>
-                 </div>
-            </div>
-
-            <!-- Parken mit Unterkunft Block -->
-            <div class="info-wrapper">
-                <div class="info">
-                    <h2>Parken</h2>
-                    <p>Autos können an der freien Trauung im Wohngebiet geparkt werden. An der Feierlocation auch, oder
-                        in folgenden Parkhäusern:</p>
-                    <p><a href="https://www.google.com/maps?q=Parkhaus+am+Marienplatz" target="_blank">Parkhaus am
-                            Marienplatz</a></p>
-                    <p><a href="https://www.google.com/maps?q=Tiefgarage+Südtor" target="_blank">Tiefgarage Südtor</a>
-                    </p>
-                </div>
-
-                <div class="info">
-                    <h2>Unterkunft</h2>
-                    <p>Solltet ihr eine Unterkunft benötigen, bieten sich folgende Hotels an:</p>
-                    <p><a href="https://www.google.com/maps?q=Hotel+Park+Inn+by+Radisson+Stuttgart"
-                            target="_blank">Hotel Park Inn by Radisson Stuttgart</a></p>
-                    <p><a href="https://www.google.com/maps?q=Ibis+Hotel+Centrum+Stuttgart" target="_blank">Ibis Hotel
-                            Centrum Stuttgart</a></p>
-                </div>
-            </div>
-
-            <!-- Dresscode und Geschenkwunsch Block -->
-            <div class="info-wrapper">
-                <div class="info">
-                    <h2>Dresscode</h2>
-                    <p>Festlich chic - Cocktail Attire</p>
-                </div>
-
-                <div class="info">
-                    <h2>Geschenkwunsch</h2>
-                    <p>Das größte Geschenk ist, dass ihr mit uns feiert! 🎉 Falls ihr uns trotzdem noch eine kleine
-                        Freude machen möchtet, freuen wir uns über einen Beitrag zu unserer Hochzeitsreise.</p>
-                </div>
-            </div>
-
-            <div class="info">
-                <h2>Fragen?</h2>
-                <p>Wendet euch gerne an:</p>
-                <p><b>Kathrina Wagner</b> (<a
-                        href="https://wa.me/4917682474532?text=Hallo%20Kathrina,%20ich%20habe%20eine%20Frage.."
-                        style="color: #f3547c;" target="_blank">WhatsApp</a>)</p>
-                <p><b>Christoph Meier</b> (<a
-                        href="https://wa.me/4915142898955?text=Hallo%20Christoph,%20ich%20habe%20eine%20Frage.."
-                        style="color: #f3547c;" target="_blank">WhatsApp</a>)</p>
-
-                <p><a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Ninas+und+Stephans+Hochzeit&dates=20250712/20250713&details=Feiere+mit+uns!&location=Löwenstraße+103+A,+70597+Degerloch"
-                        target="_blank">In Google-Kalender speichern</a></p>
-                <p><a href="URL-zur-Datei/NinasUndStephansHochzeit.ics" download="NinasUndStephansHochzeit.ics">In
-                        Kalender speichern (.ics)</a></p>
-            </div>
-
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxVwgSbSHr2UR-JkIgNIfPR4PyoWOpVEog0OXQcaCecqMuOA/viewform?usp=header"
-                class="btn" target="_blank">Zur Zu- & Absage</a>
-        </div>
-    </div>
-
-    <script>
-        // Passwortschutz-Funktion
-        function checkPassword() {
-            const password = document.getElementById('password').value;
-            const loginButton = document.getElementById('loginButton');
-            const errorMessage = document.getElementById('errorMessage');
-
-            loginButton.disabled = true;
-
-            if (password === 'siebenundzwanzig') {
-                document.getElementById('login').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-            } else {
-                errorMessage.textContent = 'Falsches Passwort! Versuche es noch einmal.';
-                setTimeout(function () {
-                    loginButton.disabled = false;
-                }, 1500);
-            }
-        }
-
-        // Slideshow-Funktion
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slideshow-container img');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                if (i === index) {
-                    slide.classList.add('active');
-                }
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        document.querySelector('.next').addEventListener('click', nextSlide);
-        document.querySelector('.prev').addEventListener('click', prevSlide);
-
-        // <<< Diese Zeile ergänzen:
-        showSlide(currentSlide);
-        
-    </script>
-</body>
-
-</html>
+    }
+</style>

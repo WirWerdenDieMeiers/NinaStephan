@@ -122,6 +122,33 @@
             text-align: center;
         }
 
+        #login input[type="password"],
+#login button {
+    width: 100%;
+    max-width: 250px;
+    padding: 10px;
+    margin: 10px auto;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+}
+
+#login input[type="password"] {
+    display: block;
+}
+
+#login button {
+    background-color: #f3547c;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#login button:hover {
+    background-color: #f5728d;
+}
+
+
         .error-message {
             color: red;
             font-size: 1.2rem;
@@ -336,23 +363,25 @@
 
     <script>
         // Passwortschutz-Funktion
-        function checkPassword() {
-            const password = document.getElementById('password').value;
-            const loginButton = document.getElementById('loginButton');
-            const errorMessage = document.getElementById('errorMessage');
+function checkPassword() {
+    const password = document.getElementById('password').value;
+    const loginButton = document.getElementById('loginButton');
+    const errorMessage = document.getElementById('errorMessage');
 
-            loginButton.disabled = true;
+    loginButton.disabled = true;
 
-            if (password === 'siebenundzwanzig') {
-                document.getElementById('login').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-            } else {
-                errorMessage.textContent = 'Falsches Passwort! Versuche es noch einmal.';
-                setTimeout(function () {
-                    loginButton.disabled = false;
-                }, 1500);
-            }
-        }
+    if (password === 'siebenundzwanzig') {
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        window.scrollTo(0, 0); // ⬅️ HIER kommt der neue Befehl rein
+    } else {
+        errorMessage.textContent = 'Falsches Passwort! Versuche es noch einmal.';
+        setTimeout(function () {
+            loginButton.disabled = false;
+        }, 1500);
+    }
+}
+
 
         // Slideshow-Funktion
         let currentSlide = 0;

@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hochzeit von Nina & Stephan</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
+            margin: 0;
             font-family: 'Poppins', sans-serif;
             background-color: #cce0c5;
             color: #cce0c5;
             text-align: center;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
         }
 
         h1 {
@@ -32,63 +29,6 @@
         h3 {
             font-size: 1.5rem;
             color: #f3547c;
-        }
-
-        #login {
-            position: absolute;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            color: #fff;
-            text-align: center;
-            z-index: 1000;
-            width: 80%;
-            max-width: 400px;
-        }
-
-        input {
-            padding: 10px;
-            font-size: 1rem;
-            margin: 10px 0;
-            width: 100%;
-            border-radius: 5px;
-            border: none;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #f3547c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background-color: #f5728d;
-        }
-
-        .error-message {
-            color: red;
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-
-        #content {
-            display: none;
-            width: 100%;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 20px;
-            text-align: left;
-            background-color: #fff;
-            border-radius: 10px;
         }
 
         .info-wrapper {
@@ -109,7 +49,7 @@
 
         .slideshow-container {
             position: relative;
-            max-width: 100%;
+            max-width: 600px;
             margin: 20px auto;
             border-radius: 10px;
             overflow: hidden;
@@ -166,39 +106,26 @@
             background: #f5728d;
         }
 
-        /* Verbesserte Skalierung für mobile Endgeräte */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
+        #content {
+            display: none;
+        }
 
-            h3 {
-                font-size: 1.2rem;
-            }
+        #login {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+        }
 
-            .container {
-                padding: 10px;
-                margin: 10px;
-            }
-
-            .info-wrapper {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .info, .details {
-                margin: 10px 0;
-                width: 100%;
-            }
-
-            #login {
-                width: 90%;
-                max-width: 350px;
-            }
-
-            button {
-                width: 100%;
-            }
+        .error-message {
+            color: red;
+            font-size: 1.2rem;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -250,6 +177,7 @@
                 <img src="images/liebe22.jpg" alt="Hochzeitsbild 22">
                 <img src="images/liebe23.PNG" alt="Hochzeitsbild 23">  
             </div>
+        
 
             <!-- Ort & Uhrzeit mit Rückmeldung Block -->
             <div class="info-wrapper">
@@ -273,6 +201,58 @@
                  </div>
             </div>
 
+            <!-- Parken mit Unterkunft Block -->
+            <div class="info-wrapper">
+                <div class="info">
+                    <h2>Parken</h2>
+                    <p>Autos können an der freien Trauung im Wohngebiet geparkt werden. An der Feierlocation auch, oder
+                        in folgenden Parkhäusern:</p>
+                    <p><a href="https://www.google.com/maps?q=Parkhaus+am+Marienplatz" target="_blank">Parkhaus am
+                            Marienplatz</a></p>
+                    <p><a href="https://www.google.com/maps?q=Tiefgarage+Südtor" target="_blank">Tiefgarage Südtor</a>
+                    </p>
+                </div>
+
+                <div class="info">
+                    <h2>Unterkunft</h2>
+                    <p>Solltet ihr eine Unterkunft benötigen, bieten sich folgende Hotels an:</p>
+                    <p><a href="https://www.google.com/maps?q=Hotel+Park+Inn+by+Radisson+Stuttgart"
+                            target="_blank">Hotel Park Inn by Radisson Stuttgart</a></p>
+                    <p><a href="https://www.google.com/maps?q=Ibis+Hotel+Centrum+Stuttgart" target="_blank">Ibis Hotel
+                            Centrum Stuttgart</a></p>
+                </div>
+            </div>
+
+            <!-- Dresscode und Geschenkwunsch Block -->
+            <div class="info-wrapper">
+                <div class="info">
+                    <h2>Dresscode</h2>
+                    <p>Festlich chic - Cocktail Attire</p>
+                </div>
+
+                <div class="info">
+                    <h2>Geschenkwunsch</h2>
+                    <p>Das größte Geschenk ist, dass ihr mit uns feiert! 🎉 Falls ihr uns trotzdem noch eine kleine
+                        Freude machen möchtet, freuen wir uns über einen Beitrag zu unserer Hochzeitsreise.</p>
+                </div>
+            </div>
+
+            <div class="info">
+                <h2>Fragen?</h2>
+                <p>Wendet euch gerne an:</p>
+                <p><b>Kathrina Wagner</b> (<a
+                        href="https://wa.me/4917682474532?text=Hallo%20Kathrina,%20ich%20habe%20eine%20Frage.."
+                        style="color: #f3547c;" target="_blank">WhatsApp</a>)</p>
+                <p><b>Christoph Meier</b> (<a
+                        href="https://wa.me/4915142898955?text=Hallo%20Christoph,%20ich%20habe%20eine%20Frage.."
+                        style="color: #f3547c;" target="_blank">WhatsApp</a>)</p>
+
+                <p><a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Ninas+und+Stephans+Hochzeit&dates=20250712/20250713&details=Feiere+mit+uns!&location=Löwenstraße+103+A,+70597+Degerloch"
+                        target="_blank">In Google-Kalender speichern</a></p>
+                <p><a href="URL-zur-Datei/NinasUndStephansHochzeit.ics" download="NinasUndStephansHochzeit.ics">In
+                        Kalender speichern (.ics)</a></p>
+            </div>
+
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxVwgSbSHr2UR-JkIgNIfPR4PyoWOpVEog0OXQcaCecqMuOA/viewform?usp=header"
                 class="btn" target="_blank">Zur Zu- & Absage</a>
         </div>
@@ -282,14 +262,19 @@
         // Passwortschutz-Funktion
         function checkPassword() {
             const password = document.getElementById('password').value;
+            const loginButton = document.getElementById('loginButton');
             const errorMessage = document.getElementById('errorMessage');
 
-            // Überprüfen des Passworts
+            loginButton.disabled = true;
+
             if (password === 'siebenundzwanzig') {
                 document.getElementById('login').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
             } else {
                 errorMessage.textContent = 'Falsches Passwort! Versuche es noch einmal.';
+                setTimeout(function () {
+                    loginButton.disabled = false;
+                }, 1500);
             }
         }
 
@@ -319,7 +304,10 @@
         document.querySelector('.next').addEventListener('click', nextSlide);
         document.querySelector('.prev').addEventListener('click', prevSlide);
 
+        // <<< Diese Zeile ergänzen:
         showSlide(currentSlide);
+        
     </script>
 </body>
+
 </html>
